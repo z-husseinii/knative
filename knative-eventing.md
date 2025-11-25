@@ -1,4 +1,7 @@
-ایمیج های فایل های yaml به رجیستری شخصی اضافه شد چون جایی که قراره پروژه پیاده سازی بشه به اینترنت دسترسی نداره 
+https://knative.dev/docs/install/yaml-install/eventing/install-eventing-with-yaml/#verify-the-installation
+
+ایمیج های فایل های yaml به رجیستری شخصی اضافه شد چون جایی که قراره پروژه پیاده سازی بشه به اینترنت دسترسی نداره
+
 دانلود فایل ها از رجیستری چون امکان کپی کردن مرتب متن  در سیستم های معاونت وجود ندارد 
 ‍‍‍```
 wget --user=<username> --password=<'password'> <file path in nexus>

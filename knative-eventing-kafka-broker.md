@@ -1,6 +1,29 @@
 1. install knative evnting component
+
+
 2. install kafka cluster
+### install namespace
+```
+kubectl create ns kafka
+```
+### install kafka operator
+```
+kubectl create kafka-operator.yaml
+```
+### create kafka-cluster 
+```
+kubectl apply -f kafka-single-node.yaml
+```
 3. install kafka broker layer
+### install kafka controller 
+```
+kubectl apply -f eventing-kafka-controller.yaml
+```
+### install Broker data plane 
+```
+kubectl apply -f eventing-kafka-broker.yaml
+```
+
 4. test send event
 - send events with kn :
 - send events with curl :

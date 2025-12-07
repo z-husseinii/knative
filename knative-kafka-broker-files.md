@@ -1,6 +1,7 @@
 knaive-eventing components 
 - https://repo.xstudioo.ir/repository/moavenat-commands/knative-eventing/eventing-crds.yaml
 - https://repo.xstudioo.ir/repository/moavenat-commands/knative-eventing/eventing-core.yaml
+
 kafka cluster 
 - https://repo.xstudioo.ir/repository/moavenat-commands/knative-eventing/kafka-cluster/kafka-operator.yaml
 - https://repo.xstudioo.ir/repository/moavenat-commands/knative-eventing/kafka-cluster/kafka-single-node.yaml
@@ -11,6 +12,7 @@ kafka broker layer
 
 kafka broker instance 
 - https://repo.xstudioo.ir/repository/moavenat-commands/knative-eventing/kafka-broker/kafka-broker.yaml
+
 kafka trigger
 - https://repo.xstudioo.ir/repository/moavenat-commands/knative-eventing/kafka-broker/kafka-trigger.yaml
 

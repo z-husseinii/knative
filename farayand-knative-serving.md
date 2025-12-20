@@ -222,6 +222,9 @@ data:
 ```
 ALLOWED_HOSTS=127.0.0.1,localhost,.farayand-microservice.knative.dev.isti.ir,knative.dev.isti.ir
 ```
+مقدار .farayand-microservice.knative.baas.ir یعنی قبل از نقطه میتواند هر چیزی باشد .
+
+
 
 
 

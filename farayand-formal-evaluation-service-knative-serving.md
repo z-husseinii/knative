@@ -255,3 +255,30 @@ def get(self, request):
 ```
 
 
+error
+```
+curl -v -H "Host: formal-evaluation-service.farayand-microservice.knative.dev.isti.ir" http://knative.dev.isti.ir/brokerages/
+500 internal error 
+```
+logs of database in baas ns 
+```
+ "POST /mongodbfindSpecificDocument HTTP/1.1" 404 - 
+```
+resolve:
+در env.dev انتهای DB_SERVICE_URL باید / گذاشت 
+جا انداخته بودم
+
+
+
+error
+```
+ raise OperationFailure(errmsg, code, response, max_wire_version)
+pymongo.errors.OperationFailure: Received authentication for mechanism SCRAM-SHA-1 which is not enabled, full error: {'ok': 0.0, 'errmsg': 'Received authentication for mechanism SCRAM-SHA-1 which is not enabled', 'code': 334, 'codeName': 'MechanismUnavailable', '$clusterTime': {'clusterTime': Timestamp(1766325338, 1), 'signature': {'hash': b'7a8M;\n\xadmko*\xbd\x12\x92\x17\xfff\x18V\xe1', 'keyId': 7549944330408951815}}, 'operationTime': Timestamp(1766325338, 1)}
+```
+
+
+resolve :
+باید در connection-string مقدار uthMechanism= را تغییر داد 
+```
+connection_string = "mongodb://application_user:HOOoAvEFDr3bRT68T4mP@mongodb-instance-svc.mongodb-operator.svc.cluster.local:27017/application_service_database?authSource=application_service_database&authMechanism=SCRAM-SHA-256"
+```

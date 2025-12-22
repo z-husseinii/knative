@@ -305,3 +305,22 @@ MONGO_USERNAME=mms-automation
 connection_string = f"mongodb://{MONGO_USERNAME}:{MONGO_PASSWORD}@{MONGO_HOST}:{MONGO_PORT}/{database_name}?authSource={AUTH_SOURCE}&authMechanism=SCRAM-SHA-256"
 ```
 
+
+error
+با وجود تغییر authSource , authMechanism بازم خطای authentication میداد 
+
+اومدم در کد connection_string رو پرینت کردم 
+
+
+```
+print(connection_string, flush=True)
+```
+فهمدم یوزر همه ریکوست ها application_user هست 
+
+راه حل 
+
+یه متغییر در deployment database نعریف شده بود برای یوزر مونگو که پاکش کردم و مشکل حل شد 
+
+```
+mongodb://mms-automation:HOOoAvEFDr3bRT68T4mP@mongodb-instance-svc.mongodb-operator.svc.cluster.local:27017/application_service_database?authSource=admin&authMechanism=SCRAM-SHA-25610.42.39.14 - - [22/Dec/2025 14:56:03] "POST /mongodb/findSpecificDocument HTTP/1.1" 200
+```

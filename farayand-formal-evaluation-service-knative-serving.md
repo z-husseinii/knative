@@ -309,7 +309,10 @@ connection_string = f"mongodb://{MONGO_USERNAME}:{MONGO_PASSWORD}@{MONGO_HOST}:{
 error
 با وجود تغییر authSource , authMechanism بازم خطای authentication میداد 
 
-اومدم در کد connection_string رو پرینت کردم 
+اومدم در کد connection_string رو پرینت کردم
+
+چون برنامه قبل از اینکه خروجی stdout فلش شود، با exception می‌ترکد
+و  داخل Docker / Flask هست که print را همیشه همان لحظه نشان نمی‌دهد.باید flush=True رو به دستور پرینت اضافه کرد 
 
 
 ```

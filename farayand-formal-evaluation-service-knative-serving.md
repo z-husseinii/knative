@@ -282,3 +282,26 @@ resolve :
 ```
 connection_string = "mongodb://application_user:HOOoAvEFDr3bRT68T4mP@mongodb-instance-svc.mongodb-operator.svc.cluster.local:27017/application_service_database?authSource=application_service_database&authMechanism=SCRAM-SHA-256"
 ```
+
+
+error 
+```
+pymongo.errors.OperationFailure: Authentication failed., full error: {'ok': 0.0, 'errmsg': 'Authentication failed.', 'code': 18, 'codeName': 'AuthenticationFailed', '$clusterTime': {'clusterTime': Timestamp(1766410110, 1), 'signature': {'hash': b'\x8c\x1e\xa9\xa4[\x034\xc3\xabj\\e\x02\x98_d,\xf7\xabm', 'keyId': 7549944330408951815}}, 'operationTime': Timestamp(1766410110, 1)}10.42.39.14 - - [22/Dec/2025 13:28:31] "POST /mongodb/findSpecificDocument HTTP/1.1" 500
+```
+
+راه حل :
+در deployment database در namespace baas که مربوط به api های دیتابیس میباشد از یوزر mms-automation استفاده میکند 
+
+چون یوزر در دیتابیس admin ساخته شده است 
+
+مقدار authsource هم باید   admin  باشد
+```
+#prod.env
+AUTH_SOURCE=admin
+MONGO_USERNAME=mms-automation
+```
+
+```
+connection_string = f"mongodb://{MONGO_USERNAME}:{MONGO_PASSWORD}@{MONGO_HOST}:{MONGO_PORT}/{database_name}?authSource={AUTH_SOURCE}&authMechanism=SCRAM-SHA-256"
+```
+
